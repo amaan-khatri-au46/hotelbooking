@@ -18,7 +18,7 @@ const List = () => {
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const { data, loading, error, reFetch } = useFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`)
+  const { data, loading, reFetch } = useFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`)
 
 
   const handleClick = () =>{
@@ -34,7 +34,7 @@ const List = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input placeholder={destination} type="text" />
+              <input placeholder={destination} type="text" onChange={(e)=>setDestination(e.target.value)} />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>
@@ -72,6 +72,7 @@ const List = () => {
                     min={1}
                     className="lsOptionInput"
                     placeholder={options.adult}
+                    onChange={(e)=>setOptions(e.target.value)}
                   />
                 </div>
                 <div className="lsOptionItem">
