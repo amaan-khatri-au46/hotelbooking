@@ -1,8 +1,9 @@
 // bascially we are going to authenticate the user ....
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
-import { createError } from "../utils/Error.js";
+// import { createError } from "../utils/Error.js";
 import jwt from "jsonwebtoken";
+import { createError } from "../utils/Error.js";
 
 export const register = async (req, res, next) => {
   try {
